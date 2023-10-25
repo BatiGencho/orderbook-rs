@@ -1,0 +1,78 @@
+[package]
+name = "orderbook-api"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "orderbook-api-server"
+path = "src/bin/orderbook-api-server.rs"
+
+[dependencies]
+# own dependencies
+
+# crates.io dependencies
+anyhow = "1.0"
+argh = "0.1"
+async-trait = "0.1"
+derive_more = "0.99"
+displaydoc = "0.2"
+futures = { version = "0.3", features = ["compat"] }
+futures-macro = "=0.3"
+indexmap = "2.0.2"
+maplit = "1.0"
+metered = "0.9.0"
+rand = "0.8.5"
+serde = { version = "1.0.137", features = ["derive"] }
+serde_json = "1.0"
+strum = { version = "0.25.0", features = ["derive"] }
+strum_macros = "0.25.3"
+thiserror = "1.0"
+tokio = { version = "1.2", features = [ "full" ] }
+toml = "0.8.4"
+uuid = { version = "1.3.0", features = ["serde", "v4"] }
+warp = { version = "0.3.4", features = ["tls"] }
+futures-util = "0.3.25"
+lobster = { git = "https://github.com/0x0xyz/lobster.git", branch = "master" }
+
+# logging
+log = "0.4.17"
+env_logger = "0.10.0"
+pretty_env_logger = "0.5.0"
+log4rs = "1.0"
+
+# tracing
+tracing = { version = "0.1", features = ["log"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+reqwest = { version = "^0.11", features = ["json", "blocking"] }
+clap = "4.1.8"
+ansi_term = "0.12"
+chrono = { version = "0.4", features= ["serde"] }
+lazy_static = "1.4.0"
+hex = "0.4.3"
+validator = { version = "0.16.0", features = ["derive", "phone"] }
+serde_path_to_error = "0.1"
+bytes = "1.1.0"
+num-bigint = "0.4"
+dotenv = { version = "0.15.0" }
+sha256 = "1.0.3"
+
+#sqlx
+sqlx = { version = "0.7.2", features = [ "runtime-tokio-rustls", "migrate", "postgres", "uuid", "time" ] }
+
+#grpc
+tonic = { git = "https://github.com/hyperium/tonic", branch = "master", features = ["gzip"] }
+tonic-web = { git = "https://github.com/hyperium/tonic", branch = "master" }
+tonic-reflection = { git = "https://github.com/hyperium/tonic", branch = "master" }
+tonic-health = { git = "https://github.com/hyperium/tonic", branch = "master" }
+prost = "0.12.1"
+prost-types = "0.12.1"
+
+[build-dependencies]
+prost-build = "0.12.1"
+tonic-build = { git = "https://github.com/hyperium/tonic", branch = "master" }
+glob = "0.3.1"
+
+[dev-dependencies]
+pretty_assertions = "1.2.0"
+serde_prometheus = "0.2.1"

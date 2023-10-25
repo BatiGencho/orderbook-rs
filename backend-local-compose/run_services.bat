@@ -1,0 +1,1 @@
+docker-compose -f orderbook-api/docker-compose.yml up -d

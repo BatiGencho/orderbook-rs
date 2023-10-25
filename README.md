@@ -1,2 +1,4 @@
 # orderbook-rs
-Orderbook service
+
+OrderBook Grpc Server written in Rust
+
